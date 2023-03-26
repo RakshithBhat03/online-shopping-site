@@ -1,6 +1,6 @@
 import { ProductCard, Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
-import { useAxios } from "../../hooks/";
+import { useAxios, useDocumentTitle } from "../../hooks/";
 const paramsForAllProducts = {
   method: "GET",
   url: "https://fakestoreapi.com/products",
@@ -10,6 +10,7 @@ export const ProductListing = () => {
   const {
     product: { searchQuery },
   } = useProduct();
+  useDocumentTitle(`Product Listing`);
   const listing = data.filter((product) =>
     JSON.stringify(product).toLowerCase().includes(searchQuery)
   );

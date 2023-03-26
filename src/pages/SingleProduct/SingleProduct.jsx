@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../components";
 import { ADD_TO_CART } from "../../constants/constants";
 import { useProduct } from "../../context/product-context";
-import { useAxios } from "../../hooks";
+import { useAxios, useDocumentTitle } from "../../hooks";
 
 export const SingleProduct = () => {
   const { id } = useParams();
@@ -13,6 +13,7 @@ export const SingleProduct = () => {
   };
   const { data, isLoading, isError } = useAxios(paramsForSingleProduct);
   const { title, price, description, category, image, rating } = data;
+  useDocumentTitle(title);
   const {
     product: { cart },
     dispatch,

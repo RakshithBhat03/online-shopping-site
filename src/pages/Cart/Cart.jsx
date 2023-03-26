@@ -1,10 +1,12 @@
 import { CartItem, CartTotal } from "../../components";
 import { useProduct } from "../../context/product-context";
+import { useDocumentTitle } from "../../hooks";
 
 export const Cart = () => {
   const {
     product: { cart },
   } = useProduct();
+  useDocumentTitle(`Cart`);
   return (
     <section className="grid grid-cols-4 grid-rows-2 md:grid-rows-none h-screen">
       <div className="col-span-4 lg:col-span-3 overflow-y-auto max-h-[75%] border rounded-md mt-12 mx-8">
