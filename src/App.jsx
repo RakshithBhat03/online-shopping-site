@@ -1,6 +1,13 @@
 import "./App.css";
+import { Navbar } from "./components";
+import { AllRoutes } from "./routes";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <main className="App w-full h-screen">
+      <Navbar />
+      <AllRoutes />
+    </main>
+  );
 }
 
 export default App;
